@@ -1,0 +1,662 @@
+{
+    "AED": {
+        "name": "아랍 에미리트 연합 디르함",
+        "description": "United Arab Emirates Dirham"
+    },
+    "AFN": {
+        "name": "아프가니스탄 아프간",
+        "description": "Afghanistan Afghani"
+    },
+    "ALL": {
+        "name": "알바니아 레크",
+        "description": "Albania Lek"
+    },
+    "AMD": {
+        "name": "아르메니아 드람",
+        "description": "Armenia Dram"
+    },
+    "ANG": {
+        "name": "네덜란드령 안틸레스 군도 길더",
+        "description": "Netherlands Antilles Guilder"
+    },
+    "AOA": {
+        "name": "앙골라 콴자",
+        "description": "Angola Kwanza"
+    },
+    "ARS": {
+        "name": "아르젠티나 페소",
+        "description": "Argentina Peso"
+    },
+    "AUD": {
+        "name": "호주/오스트레일리아 달러",
+        "description": "Australia Dollar"
+    },
+    "AWG": {
+        "name": "아루바 길더",
+        "description": "Aruba Guilder"
+    },
+    "AZN": {
+        "name": "아제르바이잔 뉴마나트",
+        "description": "Azerbaijan New Manat"
+    },
+    "BAM": {
+        "name": "보스니아 헤르체고비나 마르카",
+        "description": "Bosnia and Herzegovina Convertible Marka"
+    },
+    "BBD": {
+        "name": "바베이도스 달러",
+        "description": "Barbados Dollar"
+    },
+    "BDT": {
+        "name": "방글라데시 타카",
+        "description": "Bangladesh Taka"
+    },
+    "BGN": {
+        "name": "불가리아 레프",
+        "description": "Bulgaria Lev"
+    },
+    "BHD": {
+        "name": "바레인 디나르",
+        "description": "Bahrain Dinar"
+    },
+    "BIF": {
+        "name": "부룬디 프랑",
+        "description": "Burundi Franc"
+    },
+    "BMD": {
+        "name": "버뮤다 달러",
+        "description": "Bermuda Dollar"
+    },
+    "BND": {
+        "name": "브루나이 다루살람 달러",
+        "description": "Brunei Darussalam Dollar"
+    },
+    "BOB": {
+        "name": "볼리비아 볼리바노",
+        "description": "Bolivia Boliviano"
+    },
+    "BRL": {
+        "name": "브라질 헤알",
+        "description": "Brazil Real"
+    },
+    "BSD": {
+        "name": "바하마 달러",
+        "description": "Bahamas Dollar"
+    },
+    "BTN": {
+        "name": "부탄 눌트럼",
+        "description": "Bhutan Ngultrum"
+    },
+    "BWP": {
+        "name": "보츠와나 풀라",
+        "description": "Botswana Pula"
+    },
+    "BYR": {
+        "name": "벨라루스 루블",
+        "description": "Belarus Ruble"
+    },
+    "BZD": {
+        "name": "벨리즈 달러",
+        "description": "Belize Dollar"
+    },
+    "CAD": {
+        "name": "캐나다 달러",
+        "description": "Canada Dollar"
+    },
+    "CDF": {
+        "name": "콩고민주공화국 / 킨샤사 프랑",
+        "description": "Congo/Kinshasa Franc"
+    },
+    "CHF": {
+        "name": "스위스 (스위즈란드) 프랑",
+        "description": "Switzerland Franc"
+    },
+    "CLP": {
+        "name": "칠레 페소",
+        "description": "Chile Peso"
+    },
+    "CNY": {
+        "name": "중국 위안, 인민폐",
+        "description": "China Yuan Renminbi"
+    },
+    "COP": {
+        "name": "콜롬비아 페소",
+        "description": "Colombia Peso"
+    },
+    "CRC": {
+        "name": "코스타리카 콜론",
+        "description": "Costa Rica Colon"
+    },
+    "CUC": {
+        "name": "쿠바 태환 페소",
+        "description": "Cuba Convertible Peso"
+    },
+    "CUP": {
+        "name": "쿠바 (일반) 페소",
+        "description": "Cuba Peso"
+    },
+    "CVE": {
+        "name": "카보베르데 군도 에스쿠도",
+        "description": "Cape Verde Escudo"
+    },
+    "CZK": {
+        "name": "체코공화국 코루나",
+        "description": "Czech Republic Koruna"
+    },
+    "DJF": {
+        "name": "지부티공화국 프랑",
+        "description": "Djibouti Franc"
+    },
+    "DKK": {
+        "name": "덴마크 크로네",
+        "description": "Denmark Krone"
+    },
+    "DOP": {
+        "name": "도미니카공화국 페소",
+        "description": "Dominican Republic Peso"
+    },
+    "DZD": {
+        "name": "알제리 디나르",
+        "description": "Algeria Dinar"
+    },
+    "EGP": {
+        "name": "에집트 파운드",
+        "description": "Egypt Pound"
+    },
+    "ERN": {
+        "name": "에리트리아 나크파",
+        "description": "Eritrea Nakfa"
+    },
+    "ETB": {
+        "name": "에티오피아 비르",
+        "description": "Ethiopia Birr"
+    },
+    "EUR": {
+        "name": "유럽연합 유로",
+        "description": "Euro Member Countries"
+    },
+    "FJD": {
+        "name": "피지 달러",
+        "description": "Fiji Dollar"
+    },
+    "FKP": {
+        "name": "포클란드 제도 파운드",
+        "description": "Falkland Islands (Malvinas) Pound"
+    },
+    "GBP": {
+        "name": "영연방 파운드",
+        "description": "United Kingdom Pound"
+    },
+    "GEL": {
+        "name": "구루지아 (조지아) 라리",
+        "description": "Georgia Lari"
+    },
+    "GGP": {
+        "name": "건지 파운드",
+        "description": "Guernsey Pound"
+    },
+    "GHS": {
+        "name": "가나 쎄디",
+        "description": "Ghana Cedi"
+    },
+    "GIP": {
+        "name": "지브랄타 파운드",
+        "description": "Gibraltar Pound"
+    },
+    "GMD": {
+        "name": "감비아 달라시",
+        "description": "Gambia Dalasi"
+    },
+    "GNF": {
+        "name": "기니 프랑",
+        "description": "Guinea Franc"
+    },
+    "GTQ": {
+        "name": "과테말라 퀘찰",
+        "description": "Guatemala Quetzal"
+    },
+    "GYD": {
+        "name": "가이아나 달러",
+        "description": "Guyana Dollar"
+    },
+    "HKD": {
+        "name": "홍콩 달러",
+        "description": "Hong Kong Dollar"
+    },
+    "HNL": {
+        "name": "온두라스 렘피라",
+        "description": "Honduras Lempira"
+    },
+    "HRK": {
+        "name": "크로아티아 쿠나",
+        "description": "Croatia Kuna"
+    },
+    "HTG": {
+        "name": "하이티 구르드",
+        "description": "Haiti Gourde"
+    },
+    "HUF": {
+        "name": "헝가리 포린트",
+        "description": "Hungary Forint"
+    },
+    "IDR": {
+        "name": "인도네시아 루피아",
+        "description": "Indonesia Rupiah"
+    },
+    "ILS": {
+        "name": "이스라엘 쉐켈",
+        "description": "Israel Shekel"
+    },
+    "IMP": {
+        "name": "아일 오브 맨 파운드",
+        "description": "Isle of Man Pound"
+    },
+    "INR": {
+        "name": "인도 루피",
+        "description": "India Rupee"
+    },
+    "IQD": {
+        "name": "이라크 디나르",
+        "description": "Iraq Dinar"
+    },
+    "IRR": {
+        "name": "이란 리알",
+        "description": "Iran Rial"
+    },
+    "ISK": {
+        "name": "아이스란드 크로나",
+        "description": "Iceland Krona"
+    },
+    "JEP": {
+        "name": "저지 파운드",
+        "description": "Jersey Pound"
+    },
+    "JMD": {
+        "name": "자메이카 달러",
+        "description": "Jamaica Dollar"
+    },
+    "JOD": {
+        "name": "요르단 디나르",
+        "description": "Jordan Dinar"
+    },
+    "JPY": {
+        "name": "일본 엔",
+        "description": "Japan Yen"
+    },
+    "KES": {
+        "name": "케냐 실링",
+        "description": "Kenya Shilling"
+    },
+    "KGS": {
+        "name": "키르기스탄 솜",
+        "description": "Kyrgyzstan Som"
+    },
+    "KHR": {
+        "name": "캄보디아 리엘",
+        "description": "Cambodia Riel"
+    },
+    "KMF": {
+        "name": "코모로 프랑",
+        "description": "Comoros Franc"
+    },
+    "KPW": {
+        "name": "조선민주주의인민공화국 원",
+        "description": "Korea (North) Won : Democratic People's Republic of Korea (DPRK)"
+    },
+    "KRW": {
+        "name": "대한민국 원",
+        "description": "Korea (South) Won : Republic of korea (ROK)"
+    },
+    "KWD": {
+        "name": "쿠웨이트 디나르",
+        "description": "Kuwait Dinar"
+    },
+    "KYD": {
+        "name": "케이만 군도 달러",
+        "description": "Cayman Islands Dollar"
+    },
+    "KZT": {
+        "name": "카자크흐스탄 텡게",
+        "description": "Kazakhstan Tenge"
+    },
+    "LAK": {
+        "name": "라오스 낍",
+        "description": "Laos Kip"
+    },
+    "LBP": {
+        "name": "레바논 파운드",
+        "description": "Lebanon Pound"
+    },
+    "LKR": {
+        "name": "스리랑카 루피",
+        "description": "Sri Lanka Rupee"
+    },
+    "LRD": {
+        "name": "리베리아 달러",
+        "description": "Liberia Dollar"
+    },
+    "LSL": {
+        "name": "레소토 로티",
+        "description": "Lesotho Loti"
+    },
+    "LTL": {
+        "name": "리투아니아 리타스",
+        "description": "Lithuania Litas"
+    },
+    "LVL": {
+        "name": "라트비아 라트",
+        "description": "Latvia Lat"
+    },
+    "LYD": {
+        "name": "리비아 디나르",
+        "description": "Libya Dinar"
+    },
+    "MAD": {
+        "name": "모로코 디람",
+        "description": "Morocco Dirham"
+    },
+    "MDL": {
+        "name": "몰도바 레우",
+        "description": "Moldova Leu"
+    },
+    "MGA": {
+        "name": "마다가스카라 아리아리",
+        "description": "Madagascar Ariary"
+    },
+    "MKD": {
+        "name": "마케도니아 데나르",
+        "description": "Macedonia Denar"
+    },
+    "MMK": {
+        "name": "미얀마 (버마) 짯",
+        "description": "Myanmar (Burma) Kyat"
+    },
+    "MNT": {
+        "name": "몽고 투그릭",
+        "description": "Mongolia Tughrik"
+    },
+    "MOP": {
+        "name": "마카오 파타카",
+        "description": "Macau Pataca"
+    },
+    "MRO": {
+        "name": "모리타니 (무리타니야) 우기야",
+        "description": "Mauritania Ouguiya"
+    },
+    "MUR": {
+        "name": "모리셔스 루피",
+        "description": "Mauritius Rupee"
+    },
+    "MVR": {
+        "name": "몰디브 군도 루피야",
+        "description": "Maldives (Maldive Islands) Rufiyaa"
+    },
+    "MWK": {
+        "name": "말라위 콰챠",
+        "description": "Malawi Kwacha"
+    },
+    "MXN": {
+        "name": "멕시코 페소",
+        "description": "Mexico Peso"
+    },
+    "MYR": {
+        "name": "말레이시아 링깃",
+        "description": "Malaysia Ringgit"
+    },
+    "MZN": {
+        "name": "모잠비크 메티칼",
+        "description": "Mozambique Metical"
+    },
+    "NAD": {
+        "name": "나미비아 달러",
+        "description": "Namibia Dollar"
+    },
+    "NGN": {
+        "name": "나이지리아 나이라",
+        "description": "Nigeria Naira"
+    },
+    "NIO": {
+        "name": "니카라과 코르도바",
+        "description": "Nicaragua Cordoba"
+    },
+    "NOK": {
+        "name": "노르웨이 크로네",
+        "description": "Norway Krone"
+    },
+    "NPR": {
+        "name": "네팔 루피",
+        "description": "Nepal Rupee"
+    },
+    "NZD": {
+        "name": "뉴질란드 달러",
+        "description": "New Zealand Dollar"
+    },
+    "OMR": {
+        "name": "오만 리알",
+        "description": "Oman Rial"
+    },
+    "PAB": {
+        "name": "파나마 발보아",
+        "description": "Panama Balboa"
+    },
+    "PEN": {
+        "name": "페루 누에보 솔",
+        "description": "Peru Nuevo Sol"
+    },
+    "PGK": {
+        "name": "파푸아 뉴 기니 키나",
+        "description": "Papua New Guinea Kina"
+    },
+    "PHP": {
+        "name": "필리핀 페소",
+        "description": "Philippines Peso"
+    },
+    "PKR": {
+        "name": "파키스탄 루피",
+        "description": "Pakistan Rupee"
+    },
+    "PLN": {
+        "name": "폴란드 즈워티",
+        "description": "Poland Zloty"
+    },
+    "PYG": {
+        "name": "파라과이 과라니",
+        "description": "Paraguay Guarani"
+    },
+    "QAR": {
+        "name": "카타르 리얄",
+        "description": "Qatar Riyal"
+    },
+    "RON": {
+        "name": "루마니아 뉴 레우",
+        "description": "Romania New Leu"
+    },
+    "RSD": {
+        "name": "세르비아 디나르",
+        "description": "Serbia Dinar"
+    },
+    "RUB": {
+        "name": "러시아 루블",
+        "description": "Russia Ruble"
+    },
+    "RWF": {
+        "name": "르완다 프랑",
+        "description": "Rwanda Franc"
+    },
+    "SAR": {
+        "name": "사우디아라비아 리얄",
+        "description": "Saudi Arabia Riyal"
+    },
+    "SBD": {
+        "name": "솔로몬 군도 달러",
+        "description": "Solomon Islands Dollar"
+    },
+    "SCR": {
+        "name": "세이셸공화국 루피",
+        "description": "Seychelles Rupee"
+    },
+    "SDG": {
+        "name": "수단 파운드",
+        "description": "Sudan Pound"
+    },
+    "SEK": {
+        "name": "스웨덴 크로나",
+        "description": "Sweden Krona"
+    },
+    "SGD": {
+        "name": "싱가폴 달러",
+        "description": "Singapore Dollar"
+    },
+    "SHP": {
+        "name": "세인트 헬레나 파운드",
+        "description": "Saint Helena Pound"
+    },
+    "SLL": {
+        "name": "시에라 레온 레오네",
+        "description": "Sierra Leone Leone"
+    },
+    "SOS": {
+        "name": "소말리아 실링",
+        "description": "Somalia Shilling"
+    },
+    "SRD": {
+        "name": "수리남 달러",
+        "description": "Suriname Dollar"
+    },
+    "SVC": {
+        "name": "엘살바도르 콜론",
+        "description": "El Salvador Colon"
+    },
+    "SYP": {
+        "name": "시리아 파운드",
+        "description": "Syria Pound"
+    },
+    "SZL": {
+        "name": "에스와티니 (스와질란드) 릴랑게니",
+        "description": "Swaziland Lilangeni"
+    },
+    "THB": {
+        "name": "타이란드 (태국) 바트",
+        "description": "Thailand Baht"
+    },
+    "TJS": {
+        "name": "타지키스탄 소모니",
+        "description": "Tajikistan Somoni"
+    },
+    "TMT": {
+        "name": "투르크메니스탄 마나트",
+        "description": "Turkmenistan Manat"
+    },
+    "TND": {
+        "name": "튀니지 디나르",
+        "description": "Tunisia Dinar"
+    },
+    "TOP": {
+        "name": "통가 팡가",
+        "description": "Tonga Pa'anga"
+    },
+    "TRY": {
+        "name": "터키 리라",
+        "description": "Turkey Lira"
+    },
+    "TTD": {
+        "name": "트리니다드 토바고 달러",
+        "description": "Trinidad and Tobago Dollar"
+    },
+    "TVD": {
+        "name": "투발루 달러",
+        "description": "Tuvalu Dollar"
+    },
+    "TWD": {
+        "name": "타이완 (대만) 뉴 달러",
+        "description": "Taiwan New Dollar"
+    },
+    "TZS": {
+        "name": "탄자니아 실링",
+        "description": "Tanzania Shilling"
+    },
+    "UAH": {
+        "name": "우크라이나 흐리브냐",
+        "description": "Ukraine Hryvna"
+    },
+    "UGX": {
+        "name": "우간다 실링",
+        "description": "Uganda Shilling"
+    },
+    "USD": {
+        "name": "미연방 달러",
+        "description": "United States Dollar"
+    },
+    "UYU": {
+        "name": "우루과이 페소",
+        "description": "Uruguay Peso"
+    },
+    "UZS": {
+        "name": "우즈베키스탄 솜",
+        "description": "Uzbekistan Som"
+    },
+    "VEF": {
+        "name": "베네주엘라 볼리바르 푸에르떼",
+        "description": "Venezuela Bolivar Fuerte"
+    },
+    "VND": {
+        "name": "베트남 동",
+        "description": "Viet Nam Dong"
+    },
+    "VUV": {
+        "name": "바누아투 바투",
+        "description": "Vanuatu Vatu"
+    },
+    "WST": {
+        "name": "사모아 탈라",
+        "description": "Samoa Tala"
+    },
+    "XAF": {
+        "name": "중앙아프리카 프랑",
+        "description": "(CFA Franc BEAC)."
+    },
+    "XAU": {
+        "name": "금",
+        "description": "Gold"
+    },
+    "XAG": {
+        "name": "은",
+        "description": "Silver"
+    },
+    "XCD": {
+        "name": "이스트 카리비안 (동 카리비안) 달러",
+        "description": "East Caribbean Dollar"
+    },
+    "XDR": {
+        "name": "국제통화기금 특별인출권",
+        "description": "International Monetary Fund (IMF) Special Drawing Rights"
+    },
+    "SDR": {
+        "name": "국제통화기금 특별인출권",
+        "description": "International Monetary Fund (IMF) Special Drawing Rights"
+    },
+    "XFO": {
+        "name": "서아프리카 프랑",
+        "description": "(CFA Franc BCEAO)."
+    },
+    "XSU": {
+        "name": "알바(ALBA) 쑤크레",
+        "description": "ALBA Sucre."
+    },
+    "YER": {
+        "name": "예멘 리알",
+        "description": "Yemen Rial"
+    },
+    "ZAR": {
+        "name": "남아프리카공화국 란드",
+        "description": "South Africa Rand"
+    },
+    "ZMK": {
+        "name": "잠비아 콰챠",
+        "description": "Zambia Kwacha"
+    },
+    "ZWD": {
+        "name": "짐바브웨이 달러",
+        "description": "Zimbabwe Dollar"
+    }
+}
