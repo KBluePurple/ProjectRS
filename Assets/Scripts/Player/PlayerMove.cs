@@ -15,7 +15,9 @@ public class PlayerMove : MonoBehaviour
     
     private void Update()
     {
-        float modify = IsPicking ? 0.1f : 1;
+        if (Cursor.lockState == CursorLockMode.None) return;
+
+        float modify = Player.IsSlowed ? 0.1f : 1;
         
         float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Vertical");

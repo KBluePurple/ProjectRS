@@ -15,6 +15,8 @@ public class Pickaxe : MonoBehaviour
 
     public void OnPick()
     {
+        if (Cursor.lockState == CursorLockMode.None) return;
+        
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))
@@ -29,6 +31,11 @@ public class Pickaxe : MonoBehaviour
                 Debug.Log($"{coinOre.name}의 체력: {coinOre.Health}");
             }
         }
-        PlayerMove.IsPicking = false;
+        Player.IsSlowed = false;
+    }
+
+    public void OnEnded()
+    {
+        Player.IsPicking = false;
     }
 }

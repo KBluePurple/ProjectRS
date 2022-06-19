@@ -5,6 +5,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public static PlayerData Data { get; private set; } = new PlayerData();
+    public static bool IsSlowed = false;
+    public static bool IsPicking = false;
     [SerializeField] Pickaxe pickaxe;
     private Animation pickaxeAnimation = null;
 
@@ -17,10 +19,13 @@ public class Player : MonoBehaviour
     
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Cursor.lockState == CursorLockMode.None) return;
+
+        if (Input.GetMouseButtonDown(0) && !IsPicking)
         {
             pickaxeAnimation.Play("PickNew");
-            PlayerMove.IsPicking = true;
+            IsPicking = true;
+            IsSlowed = true;
         }
     }
 }
