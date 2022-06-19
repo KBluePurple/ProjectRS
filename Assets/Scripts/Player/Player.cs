@@ -5,9 +5,12 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public static PlayerData Data { get; private set; } = new PlayerData();
+    [SerializeField] Pickaxe pickaxe;
+    private Animation pickaxeAnimation = null;
 
     private void Start()
     {
+        pickaxeAnimation = pickaxe.GetComponent<Animation>();
         Cursor.lockState = CursorLockMode.Locked;
         Debug.Log($"MousePosition: {Input.mousePosition}");
     }
@@ -16,17 +19,8 @@ public class Player : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit))
-            {
-                CoinOre coinOre = hit.transform.GetComponent<CoinOre>();
-                if (coinOre != null)
-                {
-                    coinOre.Health -= Data.MiningPower;
-                    Debug.Log($"{coinOre.name}의 체력: {coinOre.Health}");
-                }
-            }
+            pickaxeAnimation.Play("PickNew");
+            PlayerMove.IsPicking = true;
         }
     }
 }
