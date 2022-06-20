@@ -3,8 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using UnityEngine.Networking;
 using System.Linq;
+
+[Serializable]
+public class Quotes
+{
+    [JsonProperty("name")]
+    public string Name { get; set; }
+    [JsonProperty("price")]
+    public float Price { get; set; }
+}
 
 [Serializable]
 public class Coin
@@ -15,10 +25,8 @@ public class Coin
     public string Name;
     [JsonProperty("symbol")]
     public string Symbol;
-    [JsonProperty("price")]
-    public float Price;
-    [JsonProperty("icon")]
-    public string IconUrl;
+    [JsonProperty("quotes")]
+    public List<Quotes> Quotes = new List<Quotes>();
 
     private Sprite icon;
     private Color[] colors;
@@ -93,8 +101,8 @@ public class Coin
 
     private static IEnumerator LoadImage(Coin coin, Action<Coin, Sprite> callback)
     {
-        Debug.Log($"{nameof(LoadImage)}: {CoinIconData.List[coin.Symbol]?.IconURL}");
-        UnityWebRequest www = UnityWebRequestTexture.GetTexture(CoinIconData.List[coin.Symbol].IconURL);
+        Debug.Log($"{nameof(LoadImage)}: https://s2.coinmarketcap.com/static/img/coins/128x128/{coin.Id}.png");
+        UnityWebRequest www = UnityWebRequestTexture.GetTexture($"https://s2.coinmarketcap.com/static/img/coins/128x128/{coin.Id}.png");
         yield return www.SendWebRequest();
         while (!www.isDone)
         {
@@ -126,16 +134,10 @@ public static class CoinData
 
     public static void Load(string json)
     {
-        var jsonObject = JsonConvert.DeserializeObject<Dictionary<string, List<Coin>>>(json);
-        List = jsonObject["coins"];
-        foreach (var coin in List)
-        {
-            if (!CoinIconData.List.ContainsKey(coin.Symbol))
-            {
-                Debug.Log($"{nameof(CoinData)}: {coin.Symbol} - No icon found");
-                Debug.Log($"Set {nameof(coin.IconUrl)} to {coin.IconUrl}");
-                CoinIconData.List.Add(coin.Symbol, new CoinIcon(coin.Symbol, coin.IconUrl));
-            }
-        }
+        var jsonObject = JObject.Parse(json);
+        Debug.Log($"{jsonObject["data"]["cryptoCurrencyList"].GetType().Name}");
+        List = jsonObject["data"]["cryptoCurrencyList"].ToObject<List<Coin>>();
+
+        Debug.Log($"{nameof(CoinData)}: {string.Join(", ", List.Select(x => x.Name).ToArray())}");
     }
 }

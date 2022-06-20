@@ -941,7 +941,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0.00127$
+  m_text: "0.00127\uFFE6"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2a3595d4bc1a11f40ac4ee3dab67c97f, type: 2}
   m_sharedMaterial: {fileID: 7599659045245498465, guid: 2a3595d4bc1a11f40ac4ee3dab67c97f, type: 2}

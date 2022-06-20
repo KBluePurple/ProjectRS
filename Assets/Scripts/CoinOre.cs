@@ -7,6 +7,8 @@ using DG.Tweening;
 
 public class CoinOre : MonoBehaviour
 {
+    public Material Material { get; private set; }
+
     [SerializeField] public Slider FillSlider;
     [SerializeField] List<MeshRenderer> sculptures = new List<MeshRenderer>();
     [SerializeField] TMPro.TMP_Text nameText;
@@ -19,6 +21,8 @@ public class CoinOre : MonoBehaviour
     private Image fillImage; // 색상 변경용
     private Coin coin; // 코인 정보
 
+    List<Tween> tweens = new List<Tween>();
+
     public int Count
     {
         get { return count; }
@@ -27,10 +31,19 @@ public class CoinOre : MonoBehaviour
             count = value;
             if (count <= 0)
             {
-                Destroy(gameObject);
+                DestroyOre();
             }
             UpdateHUD();
         }
+    }
+
+    private void DestroyOre()
+    {
+        foreach (var tween in tweens)
+        {
+            tween.Kill();
+        }
+        Destroy(gameObject);
     }
 
     public float Health
@@ -43,7 +56,7 @@ public class CoinOre : MonoBehaviour
             if (health <= 0)
             {
                 Count--;
-                health = coin.Price;
+                health = coin.Quotes[0].Price;
             }
             UpdateHUD();
         }
@@ -79,8 +92,8 @@ public class CoinOre : MonoBehaviour
                     }
                     image.sprite = icon;
                 }
-                FillSlider.maxValue = coin.Price;
-                health = coin.Price;
+                FillSlider.maxValue = coin.Quotes[0].Price;
+                health = coin.Quotes[0].Price;
                 FillSlider.value = 0;
                 fillImage.SetAlpha(0.2f);
                 UpdateHUD();
@@ -92,8 +105,24 @@ public class CoinOre : MonoBehaviour
     {
         image = GetComponentInChildren<Image>();
         fillImage = FillSlider.fillRect.GetComponent<Image>();
+        Material = GetComponentInChildren<MeshRenderer>().material;
 
         Coin = CoinData.List[Random.Range(0, CoinData.List.Count)];
+    }
+
+    public void Blink()
+    {
+        float time = 0.075f;
+        tweens.Add(Material.DOColor(Color.white, "_BaseColor", time).SetLoops(2, LoopType.Yoyo));
+        tweens.Add(Material.DOColor(Color.white, "_1st_ShadeColor", time).SetLoops(2, LoopType.Yoyo));
+
+        for (int i = 0; i < sculptures.Count; i++)
+        {
+            tweens.Add(sculptures[i].material.DOColor(Color.white, "_BaseColor", time).SetLoops(2, LoopType.Yoyo));
+            tweens.Add(sculptures[i].material.DOColor(Color.white, "_1st_ShadeColor", time).SetLoops(2, LoopType.Yoyo));
+        }
+
+        tweens.Add(fillImage.DOColor(new Color(1, 1, 1, 0.5f), time).SetLoops(2, LoopType.Yoyo));
     }
 
     private void Update()
@@ -102,16 +131,26 @@ public class CoinOre : MonoBehaviour
         {
             Coin = CoinData.List[Random.Range(0, CoinData.List.Count)];
         }
+
+        for (int i = 0; i < tweens.Count; i++)
+        {
+            if (!tweens[i].IsActive())
+            {
+                tweens.RemoveAt(i);
+                i--;
+            }
+        }
     }
 
     private void UpdateHUD()
     {
         nameText.text = $"<font-weight=100><font-weight=300>{coin.Name}</font-weight> ({coin.Symbol}) x{count}</font-weight>";
-        priceText.text = $"{coin.Price.ToString("F")}$";
+        priceText.text = $"{string.Format("{0:#,0.00}", coin.Quotes[0].Price)}￦";
         nameText.color = coin.Colors[0];
         priceText.color = coin.Colors[0];
         fillImage.color = coin.Colors[0];
         fillImage.SetAlpha(0.2f);
-        FillSlider.DOValue(coin.Price - health, 0.5f);
+
+        tweens.Add(FillSlider.DOValue(coin.Quotes[0].Price - health, 0.5f));
     }
 }

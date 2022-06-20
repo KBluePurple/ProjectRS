@@ -11,21 +11,15 @@ public static class DataManager
     {
         Debug.Log($"{nameof(DataManager)}: Initialize");
 
-        FileInfo fileInfo = new FileInfo(Application.dataPath + "/Resources/CoinIconData.json");
-        if (fileInfo.Exists)
-        {
-            string jsonFile = File.ReadAllText(Application.dataPath + "/Resources/CoinIconData.json");
-            CoinIconData.Load(jsonFile);
-        }
-
-        HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://api.coinstats.app/public/v1/coins?skip=0&limit=100&currency=USDT");
-        request.Method = "GET";
-        request.ContentType = "application/json";
+        HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://api.coinmarketcap.com/data-api/v3/cryptocurrency/listing?start=1&limit=100&sortBy=market_cap&sortType=desc&convert=KRW");
+        
         request.Accept = "application/json";
+        request.UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36";
 
         HttpWebResponse response = (HttpWebResponse)request.GetResponse();
         StreamReader reader = new StreamReader(response.GetResponseStream());
         string json = reader.ReadToEnd();
+        Debug.Log($"{nameof(DataManager)}: {json}");
         CoinData.Load(json);
     }
 }

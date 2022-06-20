@@ -25,6 +25,7 @@ public class Pickaxe : MonoBehaviour
             if (coinOre != null)
             {
                 coinOre.Health -= Player.Data.MiningPower;
+                coinOre.Blink();
                 Color color = coinOre.Coin.Colors[0] + new Color(0.1f, 0.1f, 0.1f);
                 particleTransform.position = hit.point;
                 particles.Play();
