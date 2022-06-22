@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     {
         for (int i = 0; i < 10; i++)
         {
-            var coinOre = ObjectPoolManager<CoinOre>.Get();
+            var coinOre = PoolManager<CoinOre>.Get();
             coinOre.transform.SetParent(oreParant);
             coinOre.transform.localPosition = new Vector3(Random.Range(0, 100), 0, Random.Range(0, 100));
         }

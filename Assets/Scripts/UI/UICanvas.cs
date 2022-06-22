@@ -5,10 +5,20 @@ using UnityEngine;
 
 public class UICanvas : MonoBehaviour
 {
+    public static Icon BackpackIcon;
+    public static Vector2 BackpackIconPosition => (BackpackIcon.transform as RectTransform).anchoredPosition;
+    public static Canvas Canvas;
+
     [SerializeField] Icon backpackIcon;
 
     private new Animation animation = null;
     private bool isInventoryOpen = false;
+
+    private void Awake()
+    {
+        Canvas = GetComponent<Canvas>();
+        BackpackIcon = backpackIcon;
+    }
 
     private void Start()
     {

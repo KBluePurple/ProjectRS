@@ -17,7 +17,7 @@ public class CoinOre : MonoBehaviour, IPoolable
     [SerializeField] int count = 0;
     [SerializeField] float health = 0;
 
-    private Image image; // 아이콘
+    public Image IconImage; // 아이콘
     private Image fillImage; // 색상 변경용
     private Coin coin; // 코인 정보
 
@@ -39,7 +39,7 @@ public class CoinOre : MonoBehaviour, IPoolable
 
     private void DestroyOre()
     {
-        ObjectPoolManager<CoinOre>.Put(this);
+        PoolManager<CoinOre>.Put(this);
     }
 
     public float Health
@@ -54,6 +54,10 @@ public class CoinOre : MonoBehaviour, IPoolable
                 Count--;
                 health = coin.Quotes[0].Price;
                 FillSlider.value = health;
+                var particle = PoolManager<GetParticle>.Get();
+                particle.transform.SetParent(UICanvas.Canvas.transform);
+                particle.SetSprite(Coin.Icon)
+                    .StartEffect(IconImage.transform.position, (UICanvas.BackpackIcon.transform as RectTransform).position, 2f);
             }
             UpdateHUD();
         }
@@ -87,7 +91,7 @@ public class CoinOre : MonoBehaviour, IPoolable
                         sculptures[i].material.SetColor("_1st_ShadeColor", color - new Color(0.1f, 0.1f, 0.1f));
                         sculptures[i].material.SetColor("_Emissive_Color", coin.Colors[0] * 0.5f);
                     }
-                    image.sprite = icon;
+                    IconImage.sprite = icon;
                 }
                 FillSlider.maxValue = coin.Quotes[0].Price;
                 health = coin.Quotes[0].Price;
@@ -105,7 +109,7 @@ public class CoinOre : MonoBehaviour, IPoolable
 
     void Start()
     {
-        image = GetComponentInChildren<Image>();
+        IconImage = GetComponentInChildren<Image>();
         fillImage = FillSlider.fillRect.GetComponent<Image>();
         Material = GetComponentInChildren<MeshRenderer>().material;
         Initialize();

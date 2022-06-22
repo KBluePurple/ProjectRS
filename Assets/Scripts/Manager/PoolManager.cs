@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public static class ObjectPoolManager<T> where T : MonoBehaviour, IPoolable
+public static class PoolManager<T> where T : MonoBehaviour, IPoolable
 {
     private static bool IsInitialized = false;
     private static GameObject _prefab = null;
@@ -12,10 +12,11 @@ public static class ObjectPoolManager<T> where T : MonoBehaviour, IPoolable
     private static Transform _poolStore = null;
 
     public static int Count => _objectQueue.Count;
+    public static int TotalCount => _pooledDict.Count;
 
-    static ObjectPoolManager()
+    static PoolManager()
     {
-        Debug.Log($"{typeof(ObjectPoolManager<T>).Name}: Initialize");
+        Debug.Log($"{typeof(PoolManager<T>).Name}: Initialize");
         SceneManager.activeSceneChanged += ActiveSceneChanged;
         _prefab = Resources.Load<GameObject>("Prefabs/" + typeof(T).Name);
         IsInitialized = true;
@@ -29,6 +30,7 @@ public static class ObjectPoolManager<T> where T : MonoBehaviour, IPoolable
             GameObject gameObject = new GameObject("PoolStore");
             _poolStore = gameObject.transform;
         }
+        _pooledDict.Clear();
         _objectQueue.Clear();
     }
 
@@ -42,12 +44,12 @@ public static class ObjectPoolManager<T> where T : MonoBehaviour, IPoolable
         else
         {
             GameObject gameObject = GameObject.Instantiate(_prefab);
-            gameObject.name = typeof(T).Name + "";
+            gameObject.name = typeof(T).Name + (TotalCount + 1);
             pool = gameObject.GetComponent<T>();
         }
         _pooledDict[pool.gameObject] = false;
-        pool.Initialize();
         pool.gameObject.SetActive(true);
+        pool.Initialize();
         return pool;
     }
 

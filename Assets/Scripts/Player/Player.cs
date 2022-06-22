@@ -8,11 +8,11 @@ public class Player : MonoBehaviour
     public static bool IsSlowed = false;
     public static bool IsPicking = false;
     [SerializeField] Pickaxe pickaxe;
-    private Animation pickaxeAnimation = null;
+    private Animator pickaxeAnimation = null;
 
     private void Start()
     {
-        pickaxeAnimation = pickaxe.GetComponent<Animation>();
+        pickaxeAnimation = pickaxe.GetComponent<Animator>();
         Cursor.lockState = CursorLockMode.Locked;
         Debug.Log($"MousePosition: {Input.mousePosition}");
     }
@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
     {
         if (Cursor.lockState == CursorLockMode.None) return;
 
-        if (Input.GetMouseButtonDown(0) && !IsPicking)
+        if (Input.GetMouseButton(0) && !IsPicking)
         {
             pickaxeAnimation.Play("PickNew");
             IsPicking = true;

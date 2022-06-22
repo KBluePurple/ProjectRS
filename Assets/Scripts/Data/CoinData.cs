@@ -140,4 +140,9 @@ public static class CoinData
 
         Debug.Log($"{nameof(CoinData)}: {string.Join(", ", List.Select(x => x.Name).ToArray())}");
     }
+
+    public static Coin GetCoinFromID(int id)
+    {
+        return null;
+    }
 }
