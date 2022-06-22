@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using System.Linq;
 using DG.Tweening;
 
-public class CoinOre : MonoBehaviour
+public class CoinOre : MonoBehaviour, IPoolable
 {
     public Material Material { get; private set; }
 
@@ -39,11 +39,7 @@ public class CoinOre : MonoBehaviour
 
     private void DestroyOre()
     {
-        foreach (var tween in tweens)
-        {
-            tween.Kill();
-        }
-        Destroy(gameObject);
+        ObjectPoolManager<CoinOre>.Put(this);
     }
 
     public float Health
@@ -57,6 +53,7 @@ public class CoinOre : MonoBehaviour
             {
                 Count--;
                 health = coin.Quotes[0].Price;
+                FillSlider.value = health;
             }
             UpdateHUD();
         }
@@ -101,13 +98,17 @@ public class CoinOre : MonoBehaviour
         }
     }
 
+    public void Initialize()
+    {
+        Coin = CoinData.List[Random.Range(0, CoinData.List.Count)];
+    }
+
     void Start()
     {
         image = GetComponentInChildren<Image>();
         fillImage = FillSlider.fillRect.GetComponent<Image>();
         Material = GetComponentInChildren<MeshRenderer>().material;
-
-        Coin = CoinData.List[Random.Range(0, CoinData.List.Count)];
+        Initialize();
     }
 
     public void Blink()
@@ -145,7 +146,7 @@ public class CoinOre : MonoBehaviour
     private void UpdateHUD()
     {
         nameText.text = $"<font-weight=100><font-weight=300>{coin.Name}</font-weight> ({coin.Symbol}) x{count}</font-weight>";
-        priceText.text = $"{string.Format("{0:#,0.00}", coin.Quotes[0].Price)}￦";
+        priceText.text = $"{string.Format("{0:#,0.000}", coin.Quotes[0].Price)}$";
         nameText.color = coin.Colors[0];
         priceText.color = coin.Colors[0];
         fillImage.color = coin.Colors[0];

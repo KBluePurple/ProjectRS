@@ -11,7 +11,7 @@ public static class DataManager
     {
         Debug.Log($"{nameof(DataManager)}: Initialize");
 
-        HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://api.coinmarketcap.com/data-api/v3/cryptocurrency/listing?start=1&limit=100&sortBy=market_cap&sortType=desc&convert=KRW");
+        HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://api.coinmarketcap.com/data-api/v3/cryptocurrency/listing?start=1&limit=100&sortBy=market_cap&sortType=desc&convert=USD");
         
         request.Accept = "application/json";
         request.UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36";

@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class UICanvas : MonoBehaviour
 {
+    [SerializeField] Icon backpackIcon;
+
     private new Animation animation = null;
     private bool isInventoryOpen = false;
 
@@ -40,6 +42,7 @@ public class UICanvas : MonoBehaviour
         else
         {
             animation.Play("InventoryShow");
+            backpackIcon.Hide();
         }
         isInventoryOpen = !isInventoryOpen;
     }
