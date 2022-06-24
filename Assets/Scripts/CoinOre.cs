@@ -97,7 +97,7 @@ public class CoinOre : MonoBehaviour, IPoolable
                 health = coin.Quotes[0].Price;
                 FillSlider.value = 0;
                 fillImage.SetAlpha(0.2f);
-                UpdateHUD();
+                UpdateHUD(false);
             });
         }
     }
@@ -147,7 +147,7 @@ public class CoinOre : MonoBehaviour, IPoolable
         }
     }
 
-    private void UpdateHUD()
+    private void UpdateHUD(bool isAnimation = true)
     {
         nameText.text = $"<font-weight=100><font-weight=300>{coin.Name}</font-weight> ({coin.Symbol}) x{count}</font-weight>";
         priceText.text = $"{string.Format("{0:#,0.000}", coin.Quotes[0].Price)}$";
@@ -156,6 +156,7 @@ public class CoinOre : MonoBehaviour, IPoolable
         fillImage.color = coin.Colors[0];
         fillImage.SetAlpha(0.2f);
 
-        tweens.Add(FillSlider.DOValue(coin.Quotes[0].Price - health, 0.5f));
+        if (isAnimation) tweens.Add(FillSlider.DOValue(coin.Quotes[0].Price - health, 0.5f));
+        else FillSlider.value = coin.Quotes[0].Price - health;
     }
 }

@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 100; i++)
         {
             var coinOre = PoolManager<CoinOre>.Get();
             coinOre.transform.SetParent(oreParant);

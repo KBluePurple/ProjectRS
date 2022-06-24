@@ -7,7 +7,37 @@ public class InventoryItem
     public int Count = 0;
 }
 
-public class Inventory : MonoBehaviour
+public static class Inventory
 {
-    List<InventoryItem> items = new List<InventoryItem>();
+    private static List<InventoryItem> items = new List<InventoryItem>();
+
+    public static void Add(InventoryItem item)
+    {
+        if (item.CoinID == 0)
+            return;
+
+        InventoryItem existingItem = items.Find(i => i.CoinID == item.CoinID);
+        if (existingItem != null)
+        {
+            existingItem.Count += item.Count;
+        }
+        else
+        {
+            items.Add(item);
+        }
+    }
+
+    public static void Remove(InventoryItem item)
+    {
+        if (item.CoinID == 0)
+            return;
+
+        InventoryItem existingItem = items.Find(i => i.CoinID == item.CoinID);
+        if (existingItem != null)
+        {
+            existingItem.Count -= item.Count;
+            if (existingItem.Count <= 0)
+                items.Remove(existingItem);
+        }
+    }
 }

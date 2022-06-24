@@ -16,7 +16,7 @@ public static class PoolManager<T> where T : MonoBehaviour, IPoolable
 
     static PoolManager()
     {
-        Debug.Log($"{typeof(PoolManager<T>).Name}: Initialize");
+        Debug.Log($"PoolManager[{typeof(T).Name}]: Initialize");
         SceneManager.activeSceneChanged += ActiveSceneChanged;
         _prefab = Resources.Load<GameObject>("Prefabs/" + typeof(T).Name);
         IsInitialized = true;
