@@ -15,9 +15,23 @@ public class InventoryItem
 
 public static class Inventory
 {
-    private static List<InventoryItem> items = new List<InventoryItem>();
+    public static float Money 
+    {
+        get
+        {
+            return money;
+        }
+        set
+        {
+            money = value;
+            UICanvas.Instance.UpdateMoney();
+        }
+    }
 
-    public static void Add(Coin coin, int count = 1)
+    private static List<InventoryItem> items = new List<InventoryItem>();
+    private static float money = 0;
+
+    public static void AddCoin(Coin coin, int count = 1)
     {
         if (coin == null)
             return;
@@ -32,11 +46,12 @@ public static class Inventory
         {
             item.Count += count;
         }
+        Debug.Log($"Added {coin.Name} x{count}");
 
         InventoryUI.Instance.AddItem(CoinData.GetCoin(item.CoinID), count);
     }
 
-    public static void Remove(Coin coin, int count = 1)
+    public static void RemoveCoin(Coin coin, int count = 1)
     {
         if (coin == null)
             return;
@@ -55,6 +70,22 @@ public static class Inventory
             }
         }
 
-        InventoryUI.Instance.RemoveItem(CoinData.GetCoin(item.CoinID), item.Count);
+        InventoryUI.Instance.RemoveItem(CoinData.GetCoin(item.CoinID), count);
+    }
+
+    public static int GetCount(Coin coin)
+    {
+        if (coin == null)
+            return 0;
+
+        InventoryItem item = items.Find(x => x.CoinID == coin.ID);
+        if (item == null)
+        {
+            return 0;
+        }
+        else
+        {
+            return item.Count;
+        }
     }
 }

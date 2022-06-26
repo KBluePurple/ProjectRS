@@ -16,11 +16,10 @@ public class InventoryUI : MonoSingleton<InventoryUI>
         else
         {
             ListItem item = PoolManager<ListItem>.Get(contentParant);
-            item.IconImage.sprite = coin.Icon;
-            item.NameText.text = coin.Name;
-            item.Price = coin.Price;
+            item.SetCoin(coin);
             item.Count = count;
 
+            item.Button.onClick.AddListener(() => UICanvas.Instance.SelectItem(item));
             listItems.Add(coin.ID, item);
         }
     }
@@ -52,6 +51,14 @@ public class InventoryUI : MonoSingleton<InventoryUI>
         if (listItems.ContainsKey(coin.ID))
         {
             listItems[coin.ID].Count = count;
+        }
+    }
+
+    public void UpdatePrice(Coin coin, int price)
+    {
+        if (listItems.ContainsKey(coin.ID))
+        {
+            listItems[coin.ID].Price = price;
         }
     }
 }

@@ -8,12 +8,15 @@ public class ListItem : MonoBehaviour, IPoolable
 {
     public Image IconImage;
     public TMP_Text NameText;
+    public Button Button;
+    public Coin Coin => coin;
 
-    [SerializeField] TMP_Text priceText;
-    [SerializeField] TMP_Text countText;
+    public TMP_Text PriceText;
+    public TMP_Text CountText;
 
     private int count = 0;
     private float price = 0;
+    private Coin coin;
 
     public int Count
     {
@@ -25,7 +28,7 @@ public class ListItem : MonoBehaviour, IPoolable
         set
         {
             count = value;
-            countText.text = count.ToString();
+            CountText.text = count.ToString();
         }
     }
 
@@ -39,15 +42,24 @@ public class ListItem : MonoBehaviour, IPoolable
         set
         {
             price = value;
-            priceText.text = price.ToString();
+            PriceText.text = price.ToString();
         }
+    }
+
+    public void SetCoin(Coin coin)
+    {
+        this.coin = coin;
+        IconImage.sprite = coin.Icon;
+        NameText.text = coin.Name;
+        Price = coin.Price;
     }
 
     public void Initialize()
     {
         IconImage.sprite = null;
         NameText.text = "";
-        priceText.text = "";
-        countText.text = "";
+        PriceText.text = "";
+        CountText.text = "";
+        Button.onClick.RemoveAllListeners();
     }
 }

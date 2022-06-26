@@ -288,8 +288,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IconImage: {fileID: 5943401981684523026}
   NameText: {fileID: 5943401980452909299}
-  priceText: {fileID: 5943401981351576148}
-  countText: {fileID: 5943401981342392980}
+  Button: {fileID: 4567960236376735043}
+  PriceText: {fileID: 5943401981351576148}
+  CountText: {fileID: 5943401981342392980}
 --- !u!1 &5943401981342392979
 GameObject:
   m_ObjectHideFlags: 0

@@ -57,7 +57,7 @@ public class CoinOre : MonoBehaviour, IPoolable
                 var particle = PoolManager<GetParticle>.Get(UICanvas.Canvas.transform);
                 particle.SetSprite(Coin.Icon)
                     .StartEffect(IconImage.transform.position, (UICanvas.BackpackIcon.transform as RectTransform).position, 2f);
-                Inventory.Add(coin, 1);
+                Inventory.AddCoin(coin, 1);
             }
             UpdateHUD();
         }
