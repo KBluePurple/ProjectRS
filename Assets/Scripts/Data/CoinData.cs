@@ -20,7 +20,7 @@ public class Quotes
 public class Coin
 {
     [JsonProperty("id")]
-    public string Id;
+    public int ID;
     [JsonProperty("name")]
     public string Name;
     [JsonProperty("symbol")]
@@ -89,6 +89,7 @@ public class Coin
         }
     }
 
+    public float Price => Quotes.First().Price;
     public void GetIcon(Action<Coin, Sprite> callback)
     {
         if (icon != null)
@@ -101,8 +102,8 @@ public class Coin
 
     private static IEnumerator LoadImage(Coin coin, Action<Coin, Sprite> callback)
     {
-        Debug.Log($"{nameof(LoadImage)}: https://s2.coinmarketcap.com/static/img/coins/128x128/{coin.Id}.png");
-        UnityWebRequest www = UnityWebRequestTexture.GetTexture($"https://s2.coinmarketcap.com/static/img/coins/128x128/{coin.Id}.png");
+        Debug.Log($"{nameof(LoadImage)}: https://s2.coinmarketcap.com/static/img/coins/128x128/{coin.ID}.png");
+        UnityWebRequest www = UnityWebRequestTexture.GetTexture($"https://s2.coinmarketcap.com/static/img/coins/128x128/{coin.ID}.png");
         yield return www.SendWebRequest();
         while (!www.isDone)
         {
@@ -130,6 +131,7 @@ public class Coin
 
 public static class CoinData
 {
+    private static Dictionary<int, Coin> coins = new Dictionary<int, Coin>();
     public static List<Coin> List = new List<Coin>();
 
     public static void Load(string json)
@@ -138,11 +140,16 @@ public static class CoinData
         Debug.Log($"{jsonObject["data"]["cryptoCurrencyList"].GetType().Name}");
         List = jsonObject["data"]["cryptoCurrencyList"].ToObject<List<Coin>>();
 
+        foreach (Coin coin in List)
+        {
+            coins.Add(coin.ID, coin);
+        }
+
         Debug.Log($"{nameof(CoinData)}: {string.Join(", ", List.Select(x => x.Name).ToArray())}");
     }
 
-    public static Coin GetCoinFromID(int id)
+    public static Coin GetCoin(int id)
     {
-        return null;
+        return coins[id];
     }
 }

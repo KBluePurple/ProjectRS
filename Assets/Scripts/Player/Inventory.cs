@@ -5,39 +5,56 @@ public class InventoryItem
 {
     public int CoinID = 0;
     public int Count = 0;
+
+    public InventoryItem(int coinID, int count)
+    {
+        CoinID = coinID;
+        Count = count;
+    }
 }
 
 public static class Inventory
 {
     private static List<InventoryItem> items = new List<InventoryItem>();
 
-    public static void Add(InventoryItem item)
+    public static void Add(Coin coin, int count = 1)
     {
-        if (item.CoinID == 0)
+        if (coin == null)
             return;
 
-        InventoryItem existingItem = items.Find(i => i.CoinID == item.CoinID);
-        if (existingItem != null)
+        InventoryItem item = items.Find(x => x.CoinID == coin.ID);
+        if (item == null)
         {
-            existingItem.Count += item.Count;
+            item = new InventoryItem(coin.ID, count);
+            items.Add(item);
         }
         else
         {
-            items.Add(item);
+            item.Count += count;
         }
+
+        InventoryUI.Instance.AddItem(CoinData.GetCoin(item.CoinID), count);
     }
 
-    public static void Remove(InventoryItem item)
+    public static void Remove(Coin coin, int count = 1)
     {
-        if (item.CoinID == 0)
+        if (coin == null)
             return;
 
-        InventoryItem existingItem = items.Find(i => i.CoinID == item.CoinID);
-        if (existingItem != null)
+        InventoryItem item = items.Find(x => x.CoinID == coin.ID);
+        if (item == null)
         {
-            existingItem.Count -= item.Count;
-            if (existingItem.Count <= 0)
-                items.Remove(existingItem);
+            return;
         }
+        else
+        {
+            item.Count -= count;
+            if (item.Count <= 0)
+            {
+                items.Remove(item);
+            }
+        }
+
+        InventoryUI.Instance.RemoveItem(CoinData.GetCoin(item.CoinID), item.Count);
     }
 }

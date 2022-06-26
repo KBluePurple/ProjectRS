@@ -42,7 +42,7 @@ public class GetParticle : MonoBehaviour, IPoolable
         {
             UICanvas.BackpackIcon.Hide();
         }
-        PoolManager<GetParticle>.Put(this);
+        PoolManager<GetParticle>.Release(this);
     }
 
     public void Initialize()

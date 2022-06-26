@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public static class PoolManager<T> where T : MonoBehaviour, IPoolable
 {
-    private static bool IsInitialized = false;
     private static GameObject _prefab = null;
     private static Dictionary<GameObject, bool> _pooledDict = new Dictionary<GameObject, bool>();
     private static Queue<GameObject> _objectQueue = new Queue<GameObject>();
@@ -19,7 +18,6 @@ public static class PoolManager<T> where T : MonoBehaviour, IPoolable
         Debug.Log($"PoolManager[{typeof(T).Name}]: Initialize");
         SceneManager.activeSceneChanged += ActiveSceneChanged;
         _prefab = Resources.Load<GameObject>("Prefabs/" + typeof(T).Name);
-        IsInitialized = true;
     }
 
     private static void ActiveSceneChanged(Scene prev, Scene scene)
@@ -34,16 +32,18 @@ public static class PoolManager<T> where T : MonoBehaviour, IPoolable
         _objectQueue.Clear();
     }
 
-    public static T Get()
+    public static T Get(Transform parant)
     {
         T pool = null;
         if (_objectQueue.Count > 0)
         {
             pool = _objectQueue.Dequeue().GetComponent<T>();
+            pool.transform.SetParent(parant);
+            pool.transform.localPosition = Vector3.zero;
         }
         else
         {
-            GameObject gameObject = GameObject.Instantiate(_prefab);
+            GameObject gameObject = GameObject.Instantiate(_prefab, parant);
             gameObject.name = typeof(T).Name + (TotalCount + 1);
             pool = gameObject.GetComponent<T>();
         }
@@ -53,7 +53,7 @@ public static class PoolManager<T> where T : MonoBehaviour, IPoolable
         return pool;
     }
 
-    public static void Put(T pool)
+    public static void Release(T pool)
     {
         bool isPooled = false;
         if (_pooledDict.TryGetValue(pool.gameObject, out isPooled))

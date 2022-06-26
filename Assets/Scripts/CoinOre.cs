@@ -39,7 +39,7 @@ public class CoinOre : MonoBehaviour, IPoolable
 
     private void DestroyOre()
     {
-        PoolManager<CoinOre>.Put(this);
+        PoolManager<CoinOre>.Release(this);
     }
 
     public float Health
@@ -54,10 +54,10 @@ public class CoinOre : MonoBehaviour, IPoolable
                 Count--;
                 health = coin.Quotes[0].Price;
                 FillSlider.value = health;
-                var particle = PoolManager<GetParticle>.Get();
-                particle.transform.SetParent(UICanvas.Canvas.transform);
+                var particle = PoolManager<GetParticle>.Get(UICanvas.Canvas.transform);
                 particle.SetSprite(Coin.Icon)
                     .StartEffect(IconImage.transform.position, (UICanvas.BackpackIcon.transform as RectTransform).position, 2f);
+                Inventory.Add(coin, 1);
             }
             UpdateHUD();
         }
