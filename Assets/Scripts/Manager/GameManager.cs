@@ -7,10 +7,12 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        for (int i = 0; i < 100; i++)
+        for (int i = 0; i < count; i++)
         {
             var coinOre = PoolManager<CoinOre>.Get(oreParant);
-            coinOre.transform.localPosition = new Vector3(Random.Range(0, 100), 0, Random.Range(0, 100));
+            Vector2 randomPos = Random.insideUnitCircle;
+            Vector3 pos = new Vector3(randomPos.x, 0, randomPos.y) * 70;
+            coinOre.transform.localPosition = transform.position + pos;
         }
     }
 }

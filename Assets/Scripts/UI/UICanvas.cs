@@ -13,6 +13,8 @@ public class UICanvas : MonoSingleton<UICanvas>
 
     [SerializeField] Icon backpackIcon;
     [SerializeField] ListItem selectedListItem = null;
+    [SerializeField] TMPro.TMP_Text enhancePriceText;
+    [SerializeField] TMPro.TMP_Text statusText;
 
     internal void UpdateMoney()
     {
@@ -88,6 +90,28 @@ public class UICanvas : MonoSingleton<UICanvas>
             selectedListItem.NameText.text = "";
             selectedListItem.PriceText.text = "";
             selectedListItem.CountText.text = "";
+        }
+    }
+
+    private float enchenceCount = 1;
+    public void OnEnhanceButtonDown()
+    {
+        float price = Mathf.Pow(1.05f, enchenceCount);
+        if (Inventory.Money > price)
+        {
+            Inventory.Money -= price;
+            enchenceCount++;
+            Player.Data.MiningPower += 1;
+            enhancePriceText.text = $"강화 비용: {Mathf.Pow(1.05f, enchenceCount)}$";
+            statusText.text = @$"
+                종류: 곡괭이
+                채굴력: {Player.Data.MiningPower}
+                채굴 속도: 1
+            ";
+        }
+        else
+        {
+            Debug.Log("Not enough money");
         }
     }
 }
