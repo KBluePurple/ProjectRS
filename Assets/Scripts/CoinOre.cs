@@ -132,11 +132,6 @@ public class CoinOre : MonoBehaviour, IPoolable
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Coin = CoinData.List[Random.Range(0, CoinData.List.Count)];
-        }
-
         for (int i = 0; i < tweens.Count; i++)
         {
             if (!tweens[i].IsActive())

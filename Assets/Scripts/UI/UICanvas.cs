@@ -104,9 +104,9 @@ public class UICanvas : MonoSingleton<UICanvas>
             Player.Data.MiningPower += 1;
             enhancePriceText.text = $"강화 비용: {Mathf.Pow(1.05f, enchenceCount)}$";
             statusText.text = @$"
-                종류: 곡괭이
-                채굴력: {Player.Data.MiningPower}
-                채굴 속도: 1
+            종류: 곡괭이
+            채굴력: {Player.Data.MiningPower}
+            채굴 속도: 1
             ";
         }
         else

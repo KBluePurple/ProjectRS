@@ -34,6 +34,14 @@ public class PlayerMove : MonoBehaviour
         transform.Rotate(new Vector3(0, mouseX * modify, 0));
         cameraTransform.Rotate(new Vector3(-mouseY * modify, 0, 0));
 
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (controller.isGrounded)
+            {
+                controller.Move(Vector3.up * 0.1f);
+            }
+        }
+
         if (!controller.isGrounded)
         {
             Vector3 gravity = new Vector3(0, -9.81f, 0);
